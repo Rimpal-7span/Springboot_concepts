@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class RestApiApplication {
 
 	public static void main(String[] args) {
-		//System.setProperty("server.servlet.context-path", "/userManagement");
+		System.setProperty("server.servlet.context-path", "/userManagement");
 		SpringApplication.run(RestApiApplication.class, args);
 	}
 

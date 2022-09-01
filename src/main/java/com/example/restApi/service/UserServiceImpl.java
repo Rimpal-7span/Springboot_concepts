@@ -8,11 +8,11 @@ import com.example.restApi.model.User;
 import com.example.restApi.repository.Addressrepo;
 import com.example.restApi.repository.custome.CustomeUserDetailRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.example.restApi.repository.Userdao;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,7 +37,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private EntityManager entityManager;
     @Autowired
-   private CustomeUserDetailRepo userDetailRepo;
+    private CustomeUserDetailRepo userDetailRepo;
+    @Autowired
+    private UserActionService userActionService;
 
     @Override
     public ResponseUserDto addUser(RequestUserDto requestUserDto) {
@@ -192,4 +194,9 @@ public class UserServiceImpl implements UserService {
    {
      return userdao.userDetail(uuid);
    }*/
+
+    public void testProfile()
+    {
+        userActionService.userAction();
+    }
 }

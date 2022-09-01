@@ -32,5 +32,6 @@ public  interface UserService {
     public Optional<User> findByIdLazy(Long id);
     public User findByIdLazyusingBuilder(Long id);
      public void deleteAddress(Long id);
+    public void testProfile();
 
 }

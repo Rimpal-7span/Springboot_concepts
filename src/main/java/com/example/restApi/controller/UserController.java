@@ -9,6 +9,7 @@ import com.example.restApi.repository.Userdao;
 import com.example.restApi.service.UserService;
 import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -26,6 +27,8 @@ import java.util.UUID;
 @RequestMapping("/users")
 public class UserController {
 
+    @Value("${user.action:}")
+    String userAction;
     @Autowired
     private UserService userService;
 
@@ -143,4 +146,12 @@ public class UserController {
         System.out.println(response.getBody());
         return user;
     }*/
+
+    @GetMapping(value = "/test-profile")
+    public void testProfile()
+    {
+        userService.testProfile();
+        System.out.println("User Action is=>"+userAction);
+    }
+
 }
